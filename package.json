@@ -1,0 +1,17 @@
+{
+  "name": "blox-explorer",
+  "description": "A web component that gets data from the EOS blocchain",
+  "version": "1.0.1",
+  "author": "@bkawk",
+  "license": "MIT",
+  "repository": "https://github.com/eosblox/blox-explorer",
+  "main": "blox-explorer.js",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}
