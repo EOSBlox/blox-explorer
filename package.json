@@ -1,7 +1,7 @@
 {
   "name": "blox-explorer",
   "description": "A web component that gets data from the EOS blocchain",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "@bkawk",
   "license": "MIT",
   "repository": "https://github.com/eosblox/blox-explorer",
