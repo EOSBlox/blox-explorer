@@ -26,16 +26,40 @@ class BloxExplorer extends PolymerElement {
     };
   }
 
-  getBalance(accountName){
+  getRamPrice(){
     return new Promise((resolve, reject) => {
-      if(accountName && accountName.length >= 12) {
-        this.eos.getCurrencyBalance(
-          {
-            "code": "eosio.token",
-            "account": accountName,
-            "symbol": "EOS"
-          }
-        )
+      this.getTable(true, 'eosio', 'eosio', 'rammarket')
+      .then((result) => {
+        resolve(result) 
+      })
+      .catch((error) => {
+        this.error = error;
+        reject(error);
+      });
+    })
+  }
+
+  getTable(json, code, scope, table, table_key, lower_bound, upper_bound, limit){
+    return new Promise((resolve, reject) => {
+      this.eos.getTableRows(json, code, scope, table, table_key, lower_bound, upper_bound, limit)
+      .then((result) => {
+        resolve(result) 
+      })
+      .catch((error) => {
+        this.error = error;
+        reject(error);
+      });
+    })
+  }
+
+
+  getBalance(accountIn, codeIn, symbolIn){
+    return new Promise((resolve, reject) => {
+      if(accountIn && accountIn.length >= 12) {
+        let code = codeIn || "eosio.token";
+        let symbol = symbolIn || "EOS";
+        let account = accountIn;
+        this.eos.getCurrencyBalance({code, account, symbol})
         .then((result) => {
           resolve(result) 
         })
